@@ -4,6 +4,10 @@
 #include "ruby.h"
 #include "node.h"
 
+#ifndef HAVE_RB_OS_ALLOCATED_OBJECTS
+#  define rb_os_allocated_objects() 0
+#endif
+
 struct _harp_call_element {
 	VALUE klass;
 	ID name;
