@@ -20,7 +20,11 @@ module Harp
       end
 
       def percent_allocations_of_total
-        total_allocations.to_f / @report.total_allocations.to_f * 100
+        if @report.total_allocations.zero?
+          0.0
+        else
+          total_allocations.to_f / @report.total_allocations.to_f * 100
+        end
       end
 
       def to_s
